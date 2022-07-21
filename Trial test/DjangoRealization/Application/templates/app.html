@@ -1,0 +1,18 @@
+{% extends 'deafult.html' %}
+
+{% block content %}
+    <br>
+    <form action='' method = 'POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <p>Number of words in text file: {{words}}</p>
+    
+    <form action='' method = 'POST'>
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+    
+{% endblock content %}
