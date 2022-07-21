@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from collections import Counter
 from pathlib import Path
+from string import punctuation
+
 from .models import Document
 from config.settings import MEDIA_ROOT
 
@@ -7,6 +10,7 @@ from config.settings import MEDIA_ROOT
 
 def wordCount(request):
     file = None
+    c = {}
     context = {}
     if request.method == 'POST':
         file = request.FILES.get('file', False)
